@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('talking', 'ChatController@talking');
+Route::post('talking/save', 'ChatController@save');
+Route::post('talking/getTalk', 'ChatController@getTalk');
+Route::get('talking/delete', 'ChatController@delete');
