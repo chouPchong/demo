@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('where');
 });
 Route::get('talking', 'ChatController@talking');
 Route::post('talking/save', 'ChatController@save');
