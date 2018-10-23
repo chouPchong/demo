@@ -46,10 +46,10 @@ class ChatController extends Controller
         }
     }
 
-    public function delete()
+    public function delete($table)
     {
         dump('聊天结束');
-        $a = Redis::del('xiannvshi');
+        $a = Redis::del($table);
         dd($a);
     }
 }
