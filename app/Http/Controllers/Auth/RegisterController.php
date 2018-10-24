@@ -36,8 +36,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $a = $this->middleware('guest');
-        dump($a);
+        $this->middleware('guest');
     }
 
     /**
