@@ -9,7 +9,7 @@ class ChatController extends Controller
 {
     public function talking()
     {
-        return view('talking');
+        return view('chat.talking');
     }
 
     public function getTalk(Request $request)
