@@ -8362,7 +8362,7 @@ body {
   -webkit-box-shadow: 0px 1px 11px 2px rgba(42, 42, 42, 0.1);
           box-shadow: 0px 1px 11px 2px rgba(42, 42, 42, 0.1);
   border-top: 4px solid #00b5ad;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   margin-top: 0px;
 }
 
@@ -8398,5 +8398,56 @@ body {
 
 .footer .container p a {
   color: inherit;
+}
+
+.chat-room_list-page .row .show-content {
+  padding: 0 20px;
+}
+
+.chat-room_list-page .row .show-content .room {
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  margin: 10px 10px;
+}
+
+.chat-room_list-page .row .show-content .room .room_name {
+  text-align: center;
+  padding: 20px 10px;
+  cursor: pointer;
+}
+
+.chat-room_list-page .mask {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.7;
+  opacity: .70;
+  filter: alpha(opacity=70);
+}
+
+.chat-room_list-page .add_room {
+  display: none;
+  position: fixed;
+  top: 25%;
+  left: 22%;
+  width: 53%;
+  height: 44%;
+  padding: 8px;
+  border: 8px solid #E8E9F7;
+  background-color: #fff;
+  z-index: 1002;
+  overflow: auto;
+}
+
+.chat-room_list-page .add_room .check {
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 

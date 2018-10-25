@@ -12,7 +12,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="{{ route('chat.talking') }}">聊天室</a>
+                    <a href="{{ route('chat.room_list') }}">聊天室</a>
                 </div>
             </div>
         </div>

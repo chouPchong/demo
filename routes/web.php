@@ -25,10 +25,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/email_verification/send', 'EmailVerificationController@send')->name('email_verification.send');
 
     Route::group(['middleware' => 'email_verified'], function () {
-        Route::get('test_email', function () { return 123;});
+        Route::get('chat/room_list', 'ChatRoomController@roomList')->name('chat.room_list');
+        Route::post('chat/room_create', 'ChatRoomController@roomCreate')->name('chat.room_create');
+        Route::get('chat/room_show', 'ChatRoomController@roomShow')->name('chat.room_show');
+
     });
 
-    Route::get('talking', 'ChatController@talking')->name('chat.talking');
+
     Route::post('talking/save', 'ChatController@save');
     Route::post('talking/getTalk', 'ChatController@getTalk');
     Route::get('talking/delete/{table?}', 'ChatController@delete');

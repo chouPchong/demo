@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPasswordNotification($token));
     }
+
+    public function chatRoom()
+    {
+        return $this->hasMany(ChatRoom::class, 'create_user', 'id');
+    }
 }

@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Redis;
 
 class ChatController extends Controller
 {
-    public function talking()
+    public function roomList()
     {
-        return view('chat.talking');
+        return view('chat.room_list');
     }
 
     public function getTalk(Request $request)
