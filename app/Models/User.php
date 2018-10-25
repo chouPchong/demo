@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\ResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'email_verified'
+        'name', 'email', 'password', 'email_verified', 'avatar'
     ];
 
     /**
@@ -35,4 +36,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified' => 'boolean'
     ];
+
+    /**
+     * 发送密码重置通知.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
 }
