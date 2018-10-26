@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ChatRoomRequest;
 use App\Models\ChatRoom;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ChatRoomController extends Controller
@@ -25,8 +26,24 @@ class ChatRoomController extends Controller
         return redirect()->route('chat.room_list');
     }
 
-    public function roomShow()
+    public function roomMain(ChatRoom $chatRoom, Request $request)
     {
+        $user = $request->user();
+        $memberList = $chatRoom->member_list;
+        $memberArr = [];
+        if (is_null($memberList)) {
+            $memberArr[] = $user->id;
+        } else {
+            $memberArr = json_decode($memberList);
+            if (!in_array($user->id, $memberArr)) {
+                $memberArr[] = $user->id;
+            }
+        }
+        $chatRoom->update(['member_list' => json_encode($memberArr)]);
+        $users = User::whereIn('id', $memberArr)->get();
 
+        return view('chat.room_main')->with([
+            'users' => $users,
+        ]);
     }
 }

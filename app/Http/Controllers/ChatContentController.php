@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
-class ChatController extends Controller
+class ChatContentController extends Controller
 {
-    public function roomList()
+    public function main()
     {
-        return view('chat.room_list');
+        return view('chat.main');
     }
 
     public function getTalk(Request $request)

@@ -22,10 +22,15 @@
                 <h4 class="title text-success">公共室</h4>
             </div>
             <div class="panel-body">
-                <div class="show-content">
+                <div class="show-list">
                     @foreach($pub_room as $pub)
-                        <div class="room text-warning bg-warning">
-                            <h4 class="room_name" onclick="location.href='{{ route('chat.room_show', ['room_id' => $pub->id]) }}'">{{ $pub->name }}</h4>
+                        <div class="room text-primary bg-primary">
+                            <h4 class="room_name" onclick="location.href='{{ route('chat.room_main', ['chat_room' => $pub->id]) }}'">
+                                {{ $pub->name }}
+                                @if(Auth::user()->id == $pub->create_user)
+                                    <p>（我的）</p>
+                                @endif
+                            </h4>
                         </div>
                     @endforeach
                 </div>
@@ -33,14 +38,10 @@
         </div>
         <div class="panel panel-info">
             <div class="panel-heading">
-                <h4 class="text-info">私密室</h4>
+                <h4 class="text-info">私聊室</h4>
             </div>
             <div class="panel-body">
-                <div class="show-content">
-                    <div class="room text-danger bg-danger">danger危险色</div>
-                    <div class="room text-warning bg-warning">warning警告色</div>
-                    <div class="room text-success bg-success">success成功色</div>
-                    <div class="room text-info bg-info">info提示色</div>
+                <div class="show-list">
                     <div class="room text-primary bg-primary">primary基础色</div>
                 </div>
             </div>
@@ -50,11 +51,7 @@
                 <h4 class="text-danger">匿名室</h4>
             </div>
             <div class="panel-body">
-                <div class="show-content">
-                    <div class="room text-danger bg-danger">danger危险色</div>
-                    <div class="room text-warning bg-warning">warning警告色</div>
-                    <div class="room text-success bg-success">success成功色</div>
-                    <div class="room text-info bg-info">info提示色</div>
+                <div class="show-list">
                     <div class="room text-primary bg-primary">primary基础色</div>
                 </div>
             </div>
