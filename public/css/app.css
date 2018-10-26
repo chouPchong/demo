@@ -8400,18 +8400,22 @@ body {
   color: inherit;
 }
 
-.chat-room_list-page .row .show-content {
+.chat-room_list-page .row .panel-body {
+  height: 200px;
+}
+
+.chat-room_list-page .row .show-list {
   padding: 0 20px;
 }
 
-.chat-room_list-page .row .show-content .room {
+.chat-room_list-page .row .show-list .room {
   width: 150px;
   height: 150px;
   display: inline-block;
   margin: 10px 10px;
 }
 
-.chat-room_list-page .row .show-content .room .room_name {
+.chat-room_list-page .row .show-list .room .room_name {
   text-align: center;
   padding: 20px 10px;
   cursor: pointer;
@@ -8449,5 +8453,41 @@ body {
   border: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+.chat-room_main-page .panel-body {
+  height: 380px;
+}
+
+.chat-room_main-page .show-content {
+  width: 100%;
+  height: 350px;
+  border: 1px solid #bbb;
+  overflow: auto;
+}
+
+.chat-room_main-page .show-content .item {
+  height: 30px;
+  padding: 3px 6px;
+}
+
+.chat-room_main-page .show-content .item .item-title {
+  line-height: 30px;
+}
+
+.chat-room_main-page .input-content {
+  width: 100%;
+  height: 150px;
+}
+
+.chat-room_main-page .input-content .input-control {
+  width: 100%;
+  height: 76%;
+}
+
+.chat-room_main-page .input-content .submit {
+  float: right;
+  padding: 3px 10px;
+  border-radius: 4px;
 }
 
