@@ -44,6 +44,7 @@ class ChatRoomController extends Controller
 
         return view('chat.room_main')->with([
             'users' => $users,
+            'chatRoom' => $chatRoom
         ]);
     }
 }

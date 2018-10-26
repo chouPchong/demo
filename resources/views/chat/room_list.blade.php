@@ -42,7 +42,16 @@
             </div>
             <div class="panel-body">
                 <div class="show-list">
-                    <div class="room text-primary bg-primary">primary基础色</div>
+                    @foreach($pri_room as $pri)
+                        <div class="room text-primary bg-primary">
+                            <h4 class="room_name" onclick="location.href='{{ route('chat.room_main', ['chat_room' => $pri->id]) }}'">
+                                {{ $pri->name }}
+                                @if(Auth::user()->id == $pri->create_user)
+                                    <p>（我的）</p>
+                                @endif
+                            </h4>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -52,7 +61,16 @@
             </div>
             <div class="panel-body">
                 <div class="show-list">
-                    <div class="room text-primary bg-primary">primary基础色</div>
+                    @foreach($non_room as $non)
+                        <div class="room text-primary bg-primary">
+                            <h4 class="room_name" onclick="location.href='{{ route('chat.room_main', ['chat_room' => $non->id]) }}'">
+                                {{ $non->name }}
+                                @if(Auth::user()->id == $non->create_user)
+                                    <p>（我的）</p>
+                                @endif
+                            </h4>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

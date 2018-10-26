@@ -5,7 +5,10 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-success">
                 <div class="panel-heading">
-                    <h4 class="title text-success">talking</h4>
+                    <h4 class="title text-success">
+                        <span class="glyphicon glyphicon-home"></span>
+                        {{ $chatRoom->name }}
+                    </h4>
                 </div>
                 <div class="panel-body">
                     <div class="show-content">
@@ -33,12 +36,18 @@
         <div class="col-md-2">
             <div class="panel panel-default">
             <div class="panel-heading">
-                <h4 class="title text-success">users</h4>
+                <h4 class="title text-success">用户列表 （{{ count($users) }}）</h4>
             </div>
             <div class="panel-body">
                 <div class="show-user">
                     @foreach($users as $user)
-                        <p class="user_list"><img src="{{ $user->avatar }}" alt=""width="20px">{{ $user->name }}</p>
+                        <p class="user_list">
+                            <img src="{{ $user->avatar }}" alt=""width="20px">
+                            {{ $user->name }}
+                            @if($user->id === $chatRoom->create_user)
+                                <span class="glyphicon glyphicon-user"></span>
+                            @endif
+                        </p>
                     @endforeach
                 </div>
             </div>
