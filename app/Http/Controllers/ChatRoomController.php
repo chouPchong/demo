@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ChatRoomRequest;
+use App\Models\ChatRoom;
 use Illuminate\Http\Request;
 
 class ChatRoomController extends Controller
 {
     public function roomList(Request $request)
     {
-        $user = $request->user();
-        return view('chat.room_list', [
-            'pub_room' => $user->chatRoom()->where('type', 1)->get(),
-            'pri_room' => $user->chatRoom()->where('type', 2)->get(),
-            'non_room' => $user->chatRoom()->where('type', 3)->get(),
-        ]);
+        $data['pub_room'] = ChatRoom::where('type', 1)->orderByDesc('created_at')->get();
+        $data['pri_room'] = ChatRoom::where('type', 2)->orderByDesc('created_at')->get();
+        $data['non_room'] = ChatRoom::where('type', 3)->orderByDesc('created_at')->get();
+
+        return view('chat.room_list', $data);
     }
 
     public function roomCreate(ChatRoomRequest $request)
