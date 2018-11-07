@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('chat/room_list', 'ChatRoomController@roomList')->name('chat.room_list');
         Route::post('chat/room_create', 'ChatRoomController@roomCreate')->name('chat.room_create');
         Route::get('chat/room_main/{chat_room}', 'ChatRoomController@roomMain')->name('chat.room_main');
+        Route::post('chat/room_main/{chat_room}/store', 'ChatContentController@store')->name('chat.content_store');
 
     });
 

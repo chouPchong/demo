@@ -52,4 +52,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(ChatRoom::class, 'create_user', 'id');
     }
+
+    public function chatContent()
+    {
+        return $this->belongsToMany(ChatRoom::class, 'chat_contents', 'user_id', 'room_id')
+            ->orderBy('chat_contents.publish_at', 'desc');
+    }
 }
